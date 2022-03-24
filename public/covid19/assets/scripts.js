@@ -4,6 +4,7 @@ const formulario = document.querySelector('#js-form')
 const tablaAlbumSelector = document.querySelector('#tabla-album')
 
 formulario.addEventListener('submit', async (event) => {
+    event.preventDefault()
     const email = document.querySelector('#js-input-email').value
     const password = document.querySelector('#js-input-password').value
     const jwt = await postData(email, password)
