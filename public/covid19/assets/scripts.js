@@ -2,6 +2,12 @@ const botonPruebaSelector = document.querySelector('#prueba')
 const tablaDatos = document.querySelector('#bodyTabla')
 const formulario = document.querySelector('#js-form')
 const tablaAlbumSelector = document.querySelector('#tabla-album')
+const loginSelector = document.querySelector('#iniciar-sesion')
+const mostrarFormularioSelector = document.querySelector('#mostrar-formulario')
+
+loginSelector.addEventListener('click', () => {
+    mostrarFormularioSelector.setAttribute("style", "display: d-block")
+})
 
 formulario.addEventListener('submit', async (event) => {
     event.preventDefault()
@@ -10,6 +16,7 @@ formulario.addEventListener('submit', async (event) => {
     const jwt = await postData(email, password)
     getDatosTotales(jwt)
     getPaises(jwt)
+    mostrarFormularioSelector.setAttribute("style", "display: none")
 })
 
 const postData = async (email, password) => {
@@ -42,6 +49,7 @@ const getDatosTotales = async (jwt) => {
             return datosPaises.active >= 10000
         })
         console.log(datosFiltrados)
+
         /*datosFiltrados.forEach(datosPaises => {
             const casosActivos = datosPaises.active
             const casosConfirmados = datosPaises.confirmed
@@ -178,12 +186,32 @@ const getPaises = async (jwt) => {
                             <td> ${row.deaths} </td>
                             <td> ${row.recovered} </td>
                             <td> ${row.active} </td>
+                            <td> <a href="#" onclick = "imprimirDatosPais("${row.location}", ${jwt})"> Ver Detalle </a> </td>
+                            
                         </tr>`
             })
-          tablaDatos.innerHTML = rows
+            tablaDatos.innerHTML = rows
         }
     } catch (error) {
         console.log(error)
+    }
+
+}
+window.imprimirDatosPais = async (pais, jwt) => {
+    try {
+        const response = await fetch(`http://localhost:3000/api/countries/${pais}`,
+            {
+                method: 'GET',
+                headers: {
+                    Authorization: `Bearer ${jwt}`
+                }
+            })
+        const { data } = await response.json()
+        console.log(data)
+    }
+    catch (error) {
+        console.log(error)
+
     }
 }
 // getPaises(localStorage.getItem('jwt-token'))
