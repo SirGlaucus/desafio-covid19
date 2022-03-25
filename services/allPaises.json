@@ -1,0 +1,1392 @@
+{
+    "data": [
+        {
+            "location": "US",
+            "confirmed": 19803443,
+            "deaths": 973213,
+            "recovered": 236580,
+            "active": 100000
+        },
+        {
+            "location": "India",
+            "confirmed": 43012749,
+            "deaths": 516605,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Brazil",
+            "confirmed": 29691641,
+            "deaths": 658005,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "France",
+            "confirmed": 24528957,
+            "deaths": 142248,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "United Kingdom",
+            "confirmed": 20566021,
+            "deaths": 164516,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Germany",
+            "confirmed": 19058757,
+            "deaths": 127214,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Russia",
+            "confirmed": 17382051,
+            "deaths": 358093,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Turkey",
+            "confirmed": 14726276,
+            "deaths": 97437,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Italy",
+            "confirmed": 13992092,
+            "deaths": 158101,
+            "recovered": 125847,
+            "active": 368540
+        },
+        {
+            "location": "Spain",
+            "confirmed": 11378784,
+            "deaths": 102053,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Korea, South",
+            "confirmed": 10427247,
+            "deaths": 13432,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Argentina",
+            "confirmed": 9016057,
+            "deaths": 127675,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Vietnam",
+            "confirmed": 8338914,
+            "deaths": 42014,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Netherlands",
+            "confirmed": 7759372,
+            "deaths": 22435,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Iran",
+            "confirmed": 7143409,
+            "deaths": 139735,
+            "recovered": 222212,
+            "active": 139852
+        },
+        {
+            "location": "Japan",
+            "confirmed": 6148049,
+            "deaths": 27251,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Colombia",
+            "confirmed": 6081933,
+            "deaths": 139489,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Indonesia",
+            "confirmed": 5974646,
+            "deaths": 154062,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Poland",
+            "confirmed": 5905463,
+            "deaths": 114355,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Mexico",
+            "confirmed": 5636054,
+            "deaths": 322119,
+            "recovered": 125888,
+            "active": 93265
+        },
+        {
+            "location": "Ukraine",
+            "confirmed": 5040518,
+            "deaths": 112459,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Australia",
+            "confirmed": 4053987,
+            "deaths": 5786,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Malaysia",
+            "confirmed": 4032435,
+            "deaths": 34535,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Israel",
+            "confirmed": 3801627,
+            "deaths": 10449,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Czechia",
+            "confirmed": 3750636,
+            "deaths": 39418,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Belgium",
+            "confirmed": 3741614,
+            "deaths": 30605,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "South Africa",
+            "confirmed": 3705696,
+            "deaths": 99893,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Philippines",
+            "confirmed": 3674983,
+            "deaths": 58281,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Peru",
+            "confirmed": 3542602,
+            "deaths": 211944,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Austria",
+            "confirmed": 3532415,
+            "deaths": 15487,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Portugal",
+            "confirmed": 3458727,
+            "deaths": 21408,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Thailand",
+            "confirmed": 3423956,
+            "deaths": 24497,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Canada",
+            "confirmed": 3422583,
+            "deaths": 37289,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Chile",
+            "confirmed": 3406540,
+            "deaths": 55976,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Switzerland",
+            "confirmed": 3353754,
+            "deaths": 13456,
+            "recovered": 148793,
+            "active": 122303
+        },
+        {
+            "location": "Denmark",
+            "confirmed": 3064138,
+            "deaths": 5509,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Greece",
+            "confirmed": 2838891,
+            "deaths": 27029,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Romania",
+            "confirmed": 2823415,
+            "deaths": 64749,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Sweden",
+            "confirmed": 2475687,
+            "deaths": 18053,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Slovakia",
+            "confirmed": 2366902,
+            "deaths": 19161,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Iraq",
+            "confirmed": 2316493,
+            "deaths": 25132,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Serbia",
+            "confirmed": 1959699,
+            "deaths": 15706,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Bangladesh",
+            "confirmed": 1950846,
+            "deaths": 29117,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Hungary",
+            "confirmed": 1831423,
+            "deaths": 45143,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Jordan",
+            "confirmed": 1689314,
+            "deaths": 14003,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Georgia",
+            "confirmed": 1643295,
+            "deaths": 16678,
+            "recovered": 234111,
+            "active": 23584
+        },
+        {
+            "location": "Pakistan",
+            "confirmed": 1522862,
+            "deaths": 30333,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Ireland",
+            "confirmed": 1397885,
+            "deaths": 6680,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Kazakhstan",
+            "confirmed": 1393492,
+            "deaths": 19005,
+            "recovered": 14777,
+            "active": 32985
+        },
+        {
+            "location": "Norway",
+            "confirmed": 1387034,
+            "deaths": 2169,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "China",
+            "confirmed": 1213223,
+            "deaths": 11002,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Morocco",
+            "confirmed": 1162626,
+            "deaths": 16053,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Bulgaria",
+            "confirmed": 1128089,
+            "deaths": 36350,
+            "recovered": 14444,
+            "active": 326585
+        },
+        {
+            "location": "Lebanon",
+            "confirmed": 1089005,
+            "deaths": 10258,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Croatia",
+            "confirmed": 1085558,
+            "deaths": 15463,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Cuba",
+            "confirmed": 1082880,
+            "deaths": 8508,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Singapore",
+            "confirmed": 1035721,
+            "deaths": 1214,
+            "recovered": 12223,
+            "active": 234
+        },
+        {
+            "location": "Tunisia",
+            "confirmed": 1033731,
+            "deaths": 28165,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Lithuania",
+            "confirmed": 997690,
+            "deaths": 8751,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Nepal",
+            "confirmed": 978231,
+            "deaths": 11951,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Belarus",
+            "confirmed": 952254,
+            "deaths": 6737,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Slovenia",
+            "confirmed": 942954,
+            "deaths": 6451,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Mongolia",
+            "confirmed": 917213,
+            "deaths": 2177,
+            "recovered": 23988,
+            "active": 76888
+        },
+        {
+            "location": "Bolivia",
+            "confirmed": 899999,
+            "deaths": 21483,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "United Arab Emirates",
+            "confirmed": 888386,
+            "deaths": 2302,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Uruguay",
+            "confirmed": 877763,
+            "deaths": 7142,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Ecuador",
+            "confirmed": 854252,
+            "deaths": 35410,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Costa Rica",
+            "confirmed": 832054,
+            "deaths": 8256,
+            "recovered": 23111,
+            "active": 13255
+        },
+        {
+            "location": "Guatemala",
+            "confirmed": 818454,
+            "deaths": 17253,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Finland",
+            "confirmed": 812224,
+            "deaths": 2881,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Azerbaijan",
+            "confirmed": 791545,
+            "deaths": 9666,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Latvia",
+            "confirmed": 777201,
+            "deaths": 5525,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Panama",
+            "confirmed": 762008,
+            "deaths": 8159,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Saudi Arabia",
+            "confirmed": 749855,
+            "deaths": 9032,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Sri Lanka",
+            "confirmed": 659859,
+            "deaths": 16440,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "West Bank and Gaza",
+            "confirmed": 654954,
+            "deaths": 5641,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Paraguay",
+            "confirmed": 647428,
+            "deaths": 18603,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Kuwait",
+            "confirmed": 627753,
+            "deaths": 2553,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Burma",
+            "confirmed": 609648,
+            "deaths": 19427,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Dominican Republic",
+            "confirmed": 577476,
+            "deaths": 4375,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Bahrain",
+            "confirmed": 546896,
+            "deaths": 1466,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Estonia",
+            "confirmed": 545057,
+            "deaths": 2399,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "New Zealand",
+            "confirmed": 539787,
+            "deaths": 184,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Venezuela",
+            "confirmed": 519797,
+            "deaths": 5671,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Moldova",
+            "confirmed": 510973,
+            "deaths": 11392,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Libya",
+            "confirmed": 501211,
+            "deaths": 6382,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Egypt",
+            "confirmed": 500889,
+            "deaths": 24361,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Ethiopia",
+            "confirmed": 469494,
+            "deaths": 7489,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Armenia",
+            "confirmed": 422354,
+            "deaths": 8601,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Honduras",
+            "confirmed": 418460,
+            "deaths": 10863,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Oman",
+            "confirmed": 387730,
+            "deaths": 4250,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Cyprus",
+            "confirmed": 387315,
+            "deaths": 923,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Bosnia and Herzegovina",
+            "confirmed": 374426,
+            "deaths": 15685,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Qatar",
+            "confirmed": 360251,
+            "deaths": 677,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Kenya",
+            "confirmed": 323306,
+            "deaths": 5647,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Zambia",
+            "confirmed": 316088,
+            "deaths": 3963,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "North Macedonia",
+            "confirmed": 303728,
+            "deaths": 9187,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Albania",
+            "confirmed": 273146,
+            "deaths": 3489,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Algeria",
+            "confirmed": 265573,
+            "deaths": 6873,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Botswana",
+            "confirmed": 263950,
+            "deaths": 2619,
+            "recovered": 10000,
+            "active": 23120
+        },
+        {
+            "location": "Nigeria",
+            "confirmed": 255190,
+            "deaths": 3142,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Zimbabwe",
+            "confirmed": 244685,
+            "deaths": 5429,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Uzbekistan",
+            "confirmed": 237520,
+            "deaths": 1637,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Montenegro",
+            "confirmed": 232376,
+            "deaths": 2696,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Kosovo",
+            "confirmed": 227191,
+            "deaths": 3130,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Mozambique",
+            "confirmed": 225215,
+            "deaths": 2200,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Luxembourg",
+            "confirmed": 202577,
+            "deaths": 1019,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Kyrgyzstan",
+            "confirmed": 200826,
+            "deaths": 2981,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Mauritius",
+            "confirmed": 192558,
+            "deaths": 934,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Afghanistan",
+            "confirmed": 177255,
+            "deaths": 7656,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Iceland",
+            "confirmed": 175329,
+            "deaths": 93,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Maldives",
+            "confirmed": 174658,
+            "deaths": 297,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Uganda",
+            "confirmed": 163768,
+            "deaths": 3595,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "El Salvador",
+            "confirmed": 161052,
+            "deaths": 4113,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Ghana",
+            "confirmed": 160870,
+            "deaths": 1445,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Namibia",
+            "confirmed": 157545,
+            "deaths": 4016,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Laos",
+            "confirmed": 156422,
+            "deaths": 651,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Trinidad and Tobago",
+            "confirmed": 135579,
+            "deaths": 3719,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Cambodia",
+            "confirmed": 135158,
+            "deaths": 3052,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Rwanda",
+            "confirmed": 129674,
+            "deaths": 1459,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Jamaica",
+            "confirmed": 128565,
+            "deaths": 2869,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Brunei",
+            "confirmed": 127300,
+            "deaths": 196,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Cameroon",
+            "confirmed": 119544,
+            "deaths": 1927,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Angola",
+            "confirmed": 99058,
+            "deaths": 1900,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Congo (Kinshasa)",
+            "confirmed": 86509,
+            "deaths": 1335,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Senegal",
+            "confirmed": 85832,
+            "deaths": 1964,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Malawi",
+            "confirmed": 85566,
+            "deaths": 2626,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Cote d'Ivoire",
+            "confirmed": 81671,
+            "deaths": 796,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Suriname",
+            "confirmed": 79055,
+            "deaths": 1324,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Malta",
+            "confirmed": 75102,
+            "deaths": 624,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Eswatini",
+            "confirmed": 69597,
+            "deaths": 1392,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Fiji",
+            "confirmed": 64327,
+            "deaths": 834,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Madagascar",
+            "confirmed": 63928,
+            "deaths": 1380,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Guyana",
+            "confirmed": 63202,
+            "deaths": 1226,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Sudan",
+            "confirmed": 61853,
+            "deaths": 4898,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Mauritania",
+            "confirmed": 58665,
+            "deaths": 981,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Barbados",
+            "confirmed": 57903,
+            "deaths": 329,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Belize",
+            "confirmed": 57191,
+            "deaths": 654,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Cabo Verde",
+            "confirmed": 55931,
+            "deaths": 401,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Syria",
+            "confirmed": 55577,
+            "deaths": 3127,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Gabon",
+            "confirmed": 47581,
+            "deaths": 303,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Papua New Guinea",
+            "confirmed": 41533,
+            "deaths": 639,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Seychelles",
+            "confirmed": 39991,
+            "deaths": 163,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Andorra",
+            "confirmed": 39234,
+            "deaths": 153,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Burundi",
+            "confirmed": 38372,
+            "deaths": 38,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Togo",
+            "confirmed": 36896,
+            "deaths": 272,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Guinea",
+            "confirmed": 36459,
+            "deaths": 440,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Tanzania",
+            "confirmed": 33797,
+            "deaths": 800,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Bahamas",
+            "confirmed": 33235,
+            "deaths": 787,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Lesotho",
+            "confirmed": 32880,
+            "deaths": 697,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Haiti",
+            "confirmed": 30511,
+            "deaths": 827,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Mali",
+            "confirmed": 30458,
+            "deaths": 727,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Benin",
+            "confirmed": 26952,
+            "deaths": 163,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Somalia",
+            "confirmed": 26410,
+            "deaths": 1361,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Congo (Brazzaville)",
+            "confirmed": 24062,
+            "deaths": 384,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Saint Lucia",
+            "confirmed": 22892,
+            "deaths": 365,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Timor-Leste",
+            "confirmed": 22815,
+            "deaths": 130,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Bhutan",
+            "confirmed": 22625,
+            "deaths": 9,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Taiwan*",
+            "confirmed": 22091,
+            "deaths": 853,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Burkina Faso",
+            "confirmed": 20813,
+            "deaths": 379,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Nicaragua",
+            "confirmed": 18365,
+            "deaths": 228,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Tajikistan",
+            "confirmed": 17786,
+            "deaths": 125,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "South Sudan",
+            "confirmed": 17144,
+            "deaths": 138,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Equatorial Guinea",
+            "confirmed": 15902,
+            "deaths": 183,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Djibouti",
+            "confirmed": 15574,
+            "deaths": 189,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Liechtenstein",
+            "confirmed": 15497,
+            "deaths": 83,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "San Marino",
+            "confirmed": 15034,
+            "deaths": 112,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Central African Republic",
+            "confirmed": 14649,
+            "deaths": 113,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Grenada",
+            "confirmed": 13954,
+            "deaths": 218,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Gambia",
+            "confirmed": 11978,
+            "deaths": 365,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Yemen",
+            "confirmed": 11802,
+            "deaths": 2142,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Dominica",
+            "confirmed": 11777,
+            "deaths": 63,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Monaco",
+            "confirmed": 10272,
+            "deaths": 54,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Solomon Islands",
+            "confirmed": 10204,
+            "deaths": 128,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Eritrea",
+            "confirmed": 9723,
+            "deaths": 103,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Niger",
+            "confirmed": 8797,
+            "deaths": 308,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Saint Vincent and the Grenadines",
+            "confirmed": 8330,
+            "deaths": 106,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Guinea-Bissau",
+            "confirmed": 8124,
+            "deaths": 169,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Comoros",
+            "confirmed": 8078,
+            "deaths": 160,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Sierra Leone",
+            "confirmed": 7674,
+            "deaths": 125,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Antigua and Barbuda",
+            "confirmed": 7473,
+            "deaths": 135,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Liberia",
+            "confirmed": 7397,
+            "deaths": 294,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Chad",
+            "confirmed": 7288,
+            "deaths": 190,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Sao Tome and Principe",
+            "confirmed": 5943,
+            "deaths": 73,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Saint Kitts and Nevis",
+            "confirmed": 5548,
+            "deaths": 42,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Palau",
+            "confirmed": 3966,
+            "deaths": 6,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Tonga",
+            "confirmed": 3784,
+            "deaths": 2,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Kiribati",
+            "confirmed": 3057,
+            "deaths": 13,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Vanuatu",
+            "confirmed": 1117,
+            "deaths": 1,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Summer Olympics 2020",
+            "confirmed": 865,
+            "deaths": 0,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Diamond Princess",
+            "confirmed": 712,
+            "deaths": 13,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Winter Olympics 2022",
+            "confirmed": 535,
+            "deaths": 0,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Samoa",
+            "confirmed": 295,
+            "deaths": 0,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Holy See",
+            "confirmed": 29,
+            "deaths": 0,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Antarctica",
+            "confirmed": 11,
+            "deaths": 0,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "MS Zaandam",
+            "confirmed": 9,
+            "deaths": 2,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Marshall Islands",
+            "confirmed": 7,
+            "deaths": 0,
+            "recovered": 0,
+            "active": 0
+        },
+        {
+            "location": "Micronesia",
+            "confirmed": 1,
+            "deaths": 0,
+            "recovered": 0,
+            "active": 0
+        }
+    ],
+    "dt": "03-23-2022",
+    "ts": 1647993600
+}
