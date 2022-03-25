@@ -16,3 +16,5 @@ En este desafio se utilizo:
 - Modificacion de elementos del DOM
 - Boostrap
 - Chart.js
+
+Hito 1:

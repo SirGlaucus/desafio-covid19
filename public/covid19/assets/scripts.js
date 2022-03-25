@@ -63,7 +63,9 @@
 
     // continuacion punto 5: para obtener esta información debes llamar a la API
     // http://localhost:3000/api/countries/{country} al momento de levantar el modal.
-    window.imprimirDatosPais = async (pais, jwt) => {
+    const imprimirDatosPais = async (e) => {
+        const pais = e.target.dataset.nombre
+        const jwt = e.target.dataset.jwt
         try {
             const response = await fetch(`http://localhost:3000/api/countries/${pais}`,
                 {
@@ -84,10 +86,15 @@
 
     const crearTd = (texto) => {
         const text = document.createTextNode(texto)
-        const td = document.createElement('td')
+        const td = document.createElement("td")
         td.appendChild(text)
-        return 
+        return td
     }
+
+    const crearTr = () => {
+        return document.createElement("tr")
+    }
+
 
     const getPaisesTabla = async (jwt) => {
         try {
@@ -101,20 +108,33 @@
                 })
             const { data } = await response.json()
             if (data) {
-                let rows = ''
-                $.each(data, (i, row) => {
-                    rows += `<tr>
-                            <td> ${row.location} </td>
-                            <td> ${row.confirmed} </td>
-                            <td> ${row.deaths} </td>
-                            <td> ${row.recovered} </td>
-                            <td> ${row.active} </td>
-                            <td><a href="#" onclick="imprimirDatosPais('${row.location}', '${jwt}')"> Ver Detalle </a></td>
-                            
-                        </tr>`
-                }) // Cada fila de la tabla debe incluir un link que diga "ver detalle", al hacer click levante un modal y m
+                for (let i = 0; i < data.length; i++) {
+                    const tr = crearTr()
+                    tr.appendChild(crearTd(data[i].location))
+                    tr.appendChild(crearTd(data[i].confirmed))
+                    tr.appendChild(crearTd(data[i].deaths))
+                    tr.appendChild(crearTd(data[i].recovered))
+                    tr.appendChild(crearTd(data[i].active))
+
+                    const tdA = crearTd('')
+                    const detallesEnlace = document.createElement('a')
+                    detallesEnlace.dataset.nombre = data[i].location
+                    detallesEnlace.dataset.jwt = jwt
+                    detallesEnlace.addEventListener('click', imprimirDatosPais) // detallesEnlace.addEventListener('click', imprimirDatosPais(data[i].location, jwt))
+                    detallesEnlace.setAttribute('href', '#')
+
+                    const detallesEnlaceTexto = document.createTextNode('Ver detalles')
+                    detallesEnlace.appendChild(detallesEnlaceTexto)
+
+                    tdA.appendChild(detallesEnlace)
+                    tr.appendChild(tdA)
+
+                    tablaDatosSelector.appendChild(tr)
+                }
+                // <td><a href="#" onclick="imprimirDatosPais('${row.location}', '${jwt}')"> Ver Detalle </a></td>
+                // Cada fila de la tabla debe incluir un link que diga "ver detalle", al hacer click levante un modal y m
                 // uestre los casos activos, muertos, recuperados y confirmados en un gráfico
-                tablaDatosSelector.innerHTML = rows // Desplegar toda la información de la API en una tabla.
+                // Desplegar toda la información de la API en una tabla.
             }
         } catch (error) {
             console.log(error)
