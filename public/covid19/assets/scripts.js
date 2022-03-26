@@ -5,6 +5,8 @@
     const loginSelector = document.querySelector('#iniciar-sesion')
     const mostrarFormularioSelector = document.querySelector('#mostrar-formulario')
 
+
+
     loginSelector.addEventListener('click', () => {
         mostrarFormularioSelector.setAttribute("style", "display: d-block")
     })
@@ -65,7 +67,7 @@
     // http://localhost:3000/api/countries/{country} al momento de levantar el modal.
     const imprimirDatosPais = async (e) => {
         const pais = e.target.dataset.nombre
-        const jwt = e.target.dataset.jwt
+        const jwt = localStorage.getItem('jwt-token')
         try {
             const response = await fetch(`http://localhost:3000/api/countries/${pais}`,
                 {
@@ -117,11 +119,10 @@
                     tr.appendChild(crearTd(data[i].active))
 
                     const tdA = crearTd('')
-                    const detallesEnlace = document.createElement('a')
+                    const detallesEnlace = document.createElement('button')
                     detallesEnlace.dataset.nombre = data[i].location
-                    detallesEnlace.dataset.jwt = jwt
                     detallesEnlace.addEventListener('click', imprimirDatosPais) // detallesEnlace.addEventListener('click', imprimirDatosPais(data[i].location, jwt))
-                    detallesEnlace.setAttribute('href', '#')
+                    detallesEnlace.classList.add("btn", "btn-link");
 
                     const detallesEnlaceTexto = document.createTextNode('Ver detalles')
                     detallesEnlace.appendChild(detallesEnlaceTexto)
@@ -234,6 +235,16 @@
         })
         myChart.render()
     }
+    const autoIniciar = () => {
+        jwt = localStorage.getItem('jwt-token')
 
+        if (jwt) {
+            getDatosTotales(jwt)
+            getPaisesTabla(jwt)
+        }
+    }
+    autoIniciar()
     // Final funcion IIFE
 })()
+
+
