@@ -23,6 +23,7 @@ class Covid19 {
         return { data }
     }
     confirmed() {
+        // return getJsonFile(path.join(__dirname, 'confirmed.json'))
         return axios.get(`${COVIDAPI}/timeseries/confirmed`).then(r => r.data)
     }
     deaths() {

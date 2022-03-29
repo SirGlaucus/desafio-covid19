@@ -2,14 +2,25 @@
     // ----------------------- Selectores
     const tablaDatosSelector = document.querySelector('#bodyTabla')
     const formularioSelector = document.querySelector('#js-form')
+    const mostrarFormularioSelector = document.querySelector('#mostrar-formulario')
     const tablaAlbumSelector = document.querySelector('#tabla-album')
     const loginSelector = document.querySelector('#iniciar-sesion')
-    const mostrarFormularioSelector = document.querySelector('#mostrar-formulario')
+    const logoutSelector = document.querySelector('#cerrar-sesion')
+    const chartPaginaPrincipalSelector = document.querySelector('#myChart') // La ubicaion que deseamos para nuestro chart de datos de todos los paises
 
 
     // ----------------------- evento de click en el navbar para mostrar el formulario
     loginSelector.addEventListener('click', () => {
         mostrarFormularioSelector.setAttribute("style", "display: d-block")
+    })
+
+    logoutSelector.addEventListener('click', () =>{
+        localStorage.removeItem('jwt-token')
+        loginSelector.setAttribute("style", "display: block")
+        logoutSelector.setAttribute("style", "display: none")
+        tablaDatosSelector.setAttribute("style", "display: none")
+        tablaAlbumSelector.setAttribute("style", "display: none")
+        chartPaginaPrincipalSelector.setAttribute("style", "display: none")
     })
 
     // ----------------------- Evento de submit en el formulario para obtener el JWT
@@ -18,9 +29,14 @@
         const email = document.querySelector('#js-input-email').value
         const password = document.querySelector('#js-input-password').value
         const jwt = await postData(email, password) // Ejecutamos la funcion post Data que nos retorna el token. Enviamos como  parametros email y contraseña
+
+        loginSelector.setAttribute("style", "display: none")
+        mostrarFormularioSelector.setAttribute("style", "display: none") // Ocultamos el formulario
+        logoutSelector.setAttribute("style", "display: block")
+        chartPaginaPrincipalSelector.setAttribute("style", "display: block")
+        tablaDatosSelector.setAttribute("style", "display: d-block") // Colocamos visibles los demas, esto funciona para que aparezca aunque se presione cerrar sesion
         getDatosTotales(jwt)
         getPaisesTabla(jwt)
-        mostrarFormularioSelector.setAttribute("style", "display: none") // Ocultamos el formulario
     })
 
     const postData = async (email, password) => {
@@ -59,9 +75,9 @@
             const dataChartRecovered = datosFiltrados.map(datos => datos.recovered)
             const dataChartDeaths = datosFiltrados.map(datos => datos.deaths)
 
-            const chartPaginaPrincipal = document.getElementById('myChart') // La ubicaion que deseamos para nuestro chart de datos de todos los paises
-            crearChart(labelPaises, dataChartActive, dataChartConfirmed, dataChartDeaths, dataChartRecovered, chartPaginaPrincipal)
+            crearChart(labelPaises, dataChartActive, dataChartConfirmed, dataChartDeaths, dataChartRecovered, chartPaginaPrincipalSelector)
             // Desplegar la información de la API en un gráfico de barra que debe mostrar sólo los países con más de 10000 casos activos.
+
         } catch (error) {
             console.log(error)
         }
@@ -129,7 +145,7 @@
                     const detallesEnlace = document.createElement('button')
                     detallesEnlace.dataset.nombre = data[i].location // Le agregamos a nuestro boton un dataset llamado nombre para guardar el string de location
                     detallesEnlace.addEventListener('click', imprimirDatosPais) // A cada boton le vamos a asignar el evento click y la funcion imprimirDatosPais
-                    detallesEnlace.classList.add("btn", "btn-link");
+                    detallesEnlace.classList.add("btn", "btn-link")
 
                     const detallesEnlaceTexto = document.createTextNode('Ver detalles')
                     detallesEnlace.appendChild(detallesEnlaceTexto)
@@ -212,10 +228,15 @@
         if (jwt) {
             getDatosTotales(jwt)
             getPaisesTabla(jwt)
+            loginSelector.setAttribute("style", "display: none")
+            logoutSelector.setAttribute("style", "display: block")
         }
+        
     }
     autoIniciar() // Si tenemos un token en nuestro local storage, ejecutamos nuestras funciones principales
     // Final funcion IIFE
+
+
 })()
 
 
