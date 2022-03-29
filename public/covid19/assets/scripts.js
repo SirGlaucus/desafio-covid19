@@ -6,7 +6,9 @@
     const tablaAlbumSelector = document.querySelector('#tabla-album')
     const loginSelector = document.querySelector('#iniciar-sesion')
     const logoutSelector = document.querySelector('#cerrar-sesion')
+    const pageSituacionChileSelector = document.querySelector('#page-chile')
     const chartPaginaPrincipalSelector = document.querySelector('#myChart') // La ubicaion que deseamos para nuestro chart de datos de todos los paises
+    const chartChileSelector = document.querySelector('#myChartChile')
 
 
     // ----------------------- evento de click en el navbar para mostrar el formulario
@@ -21,6 +23,8 @@
         tablaDatosSelector.setAttribute("style", "display: none")
         tablaAlbumSelector.setAttribute("style", "display: none")
         chartPaginaPrincipalSelector.setAttribute("style", "display: none")
+        pageSituacionChileSelector.setAttribute("style", "display: none")
+        chartChileSelector.setAttribute("style", "display: none")
     })
 
     // ----------------------- Evento de submit en el formulario para obtener el JWT
@@ -35,6 +39,7 @@
         logoutSelector.setAttribute("style", "display: block")
         chartPaginaPrincipalSelector.setAttribute("style", "display: block")
         tablaDatosSelector.setAttribute("style", "display: d-block") // Colocamos visibles los demas, esto funciona para que aparezca aunque se presione cerrar sesion
+        pageSituacionChileSelector.setAttribute("style", "display: block")
         getDatosTotales(jwt)
         getPaisesTabla(jwt)
     })
@@ -235,8 +240,4 @@
     }
     autoIniciar() // Si tenemos un token en nuestro local storage, ejecutamos nuestras funciones principales
     // Final funcion IIFE
-
-
 })()
-
-

@@ -1,3 +1,4 @@
+const pageSituacionChileSelector = document.querySelector('#page-chile')
 const tablaDatosSelector = document.querySelector('#bodyTabla')
 const tablaAlbumSelector = document.querySelector('#tabla-album')
 const chartPaginaPrincipalSelector = document.querySelector('#myChart') // La ubicaion que deseamos para nuestro chart de datos de todos los paises
@@ -25,7 +26,8 @@ const getChileConfirmed = async () => {
     }
 }
 
-const getChileDeaths = async (jwt) => {
+const getChileDeaths = async () => {
+    jwt = localStorage.getItem('jwt-token')
     try {
         const response = await fetch(`http://localhost:3000/api/deaths`,
             {
@@ -41,7 +43,8 @@ const getChileDeaths = async (jwt) => {
     }
 }
 
-const getChileRecovered = async (jwt) => {
+const getChileRecovered = async () => {
+    jwt = localStorage.getItem('jwt-token')
     try {
         const response = await fetch(`http://localhost:3000/api/recovered`,
             {
@@ -104,19 +107,19 @@ const crearTablaChile = (fechas, confirmados, muertos, recuperados) => {
     myChart.render()
 }
 
-(async () => {
-    const confirmados = await getChileConfirmed(jwt)
-    const muertos = await getChileDeaths(jwt)
-    const recuperados = await getChileRecovered(jwt)
-    
-    const soloFechas = confirmados.map(datos => datos.date)
-    const soloConfirmados = confirmados.map(datos => datos.total)
-    const soloMuertos = muertos.map(datos => datos.total)
-    const soloRecuperados = recuperados.map(datos => datos.total)
-    console.log(soloFechas)
-    console.log(soloConfirmados)
-    console.log(soloMuertos)
-    console.log(soloRecuperados)
-    crearTablaChile(soloFechas, soloConfirmados, soloMuertos, soloRecuperados)
+const autoIniciarChile = async () => {
+    jwt = localStorage.getItem('jwt-token')
+    if (jwt) {
+        pageSituacionChileSelector.setAttribute("style", "display: block")
+        const confirmados = await getChileConfirmed(jwt)
+        const muertos = await getChileDeaths(jwt)
+        const recuperados = await getChileRecovered(jwt)
+
+        const soloFechas = confirmados.map(datos => datos.date)
+        const soloConfirmados = confirmados.map(datos => datos.total)
+        const soloMuertos = muertos.map(datos => datos.total)
+        const soloRecuperados = recuperados.map(datos => datos.total)
+        crearTablaChile(soloFechas, soloConfirmados, soloMuertos, soloRecuperados)
+    }
 }
-)()
+autoIniciarChile()
