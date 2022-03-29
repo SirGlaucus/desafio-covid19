@@ -1,29 +1,39 @@
 (() => {
     // ----------------------- Selectores
-    const tablaDatosSelector = document.querySelector('#bodyTabla')
-    const formularioSelector = document.querySelector('#js-form')
-    const mostrarFormularioSelector = document.querySelector('#mostrar-formulario')
-    const tablaAlbumSelector = document.querySelector('#tabla-album')
+    
+    const mostrarFormularioSelector = document.querySelector('#mostrar-formulario') // TODO: cambiar esto a un modal en lugar de div
+    // Los selectores de los elementos del navbar (pagina de chile, iniciar y cerrar sesion)
     const loginSelector = document.querySelector('#iniciar-sesion')
     const logoutSelector = document.querySelector('#cerrar-sesion')
     const pageSituacionChileSelector = document.querySelector('#page-chile')
-    const chartPaginaPrincipalSelector = document.querySelector('#myChart') // La ubicaion que deseamos para nuestro chart de datos de todos los paises
-    const chartChileSelector = document.querySelector('#myChartChile')
+
+    // Selectores de las tablas y charts
+    const tablaDatosSelector = document.querySelector('#bodyTabla')
+    const formularioSelector = document.querySelector('#js-form')
+    const tablaAlbumSelector = document.querySelector('#tabla-album')
+    const chartPaginaPrincipalSelector = document.querySelector('#myChart') // La ubicacion que deseamos para nuestro chart de datos de todos los paises
+    const modalChartSelector = document.querySelector('#myChartModal') // La ubicacion del chart para paises individuales en el modal
+    const chartChileSelector = document.querySelector('#myChartChile') // La ubicacion de nuestro chart de Chile y nuestra segunda pagina
 
 
-    // ----------------------- evento de click en el navbar para mostrar el formulario
+    // ----------------------- Evento de click en el navbar para mostrar el formulario
     loginSelector.addEventListener('click', () => {
         mostrarFormularioSelector.setAttribute("style", "display: d-block")
     })
 
-    logoutSelector.addEventListener('click', () =>{
+    logoutSelector.addEventListener('click', () =>{ // Sirve para eliminar el token y llevar la pagina a su estado inicial
         localStorage.removeItem('jwt-token')
-        loginSelector.setAttribute("style", "display: block")
-        logoutSelector.setAttribute("style", "display: none")
+
+        logoutSelector.setAttribute("style", "display: none")  // Elementos del nav que se ocultan
+        pageSituacionChileSelector.setAttribute("style", "display: none") // Elementos del nav que se ocultan
+
+        
+        loginSelector.setAttribute("style", "display: block") // Elemento del Nav que se muestra
+
+        // Los siguientes elementos son las tablas y los charts que se ocultan al hacer log out - NOTA: ¿Seria mejor eliminar su contenido?
         tablaDatosSelector.setAttribute("style", "display: none")
         tablaAlbumSelector.setAttribute("style", "display: none")
         chartPaginaPrincipalSelector.setAttribute("style", "display: none")
-        pageSituacionChileSelector.setAttribute("style", "display: none")
         chartChileSelector.setAttribute("style", "display: none")
     })
 
@@ -34,16 +44,22 @@
         const password = document.querySelector('#js-input-password').value
         const jwt = await postData(email, password) // Ejecutamos la funcion post Data que nos retorna el token. Enviamos como  parametros email y contraseña
 
+        // Ocultamos el formulario y el boton de login
         loginSelector.setAttribute("style", "display: none")
-        mostrarFormularioSelector.setAttribute("style", "display: none") // Ocultamos el formulario
-        logoutSelector.setAttribute("style", "display: block")
-        chartPaginaPrincipalSelector.setAttribute("style", "display: block")
-        tablaDatosSelector.setAttribute("style", "display: d-block") // Colocamos visibles los demas, esto funciona para que aparezca aunque se presione cerrar sesion
-        pageSituacionChileSelector.setAttribute("style", "display: block")
+        mostrarFormularioSelector.setAttribute("style", "display: none") 
+
+        // Mostramos nuestro enlace en logout de nuestro nav, el enlace a la pagina de chile, nuestro chart y nuestra tabla
+        logoutSelector.setAttribute("style", "display: block") // Nav logout
+        pageSituacionChileSelector.setAttribute("style", "display: block") // Nav pagina chile
+        chartPaginaPrincipalSelector.setAttribute("style", "display: block") // Chart principal (mayor a mil)
+        tablaDatosSelector.setAttribute("style", "display: d-block") // Tabla de datos
+
+        // Ejecucion de nuestras funciones para mostrar los datos
         getDatosTotales(jwt)
         getPaisesTabla(jwt)
     })
 
+    // ----------------------- Funcion que nos retorna el JWT
     const postData = async (email, password) => {
         try {
             const response = await fetch('http://localhost:3000/api/login',
@@ -60,6 +76,7 @@
         }
     }
 
+    // ----------------------- Funcion que con el JWT extrae los datos y pinta el chart principal
     const getDatosTotales = async (jwt) => { // Consumir la API http://localhost:3000/api/total con JavaScript o jQuery.
         try {
             const response = await fetch(`http://localhost:3000/api/total`,
@@ -103,9 +120,9 @@
                     }
                 })
             const { data } = await response.json()
-            $('#exampleModal').modal('toggle')
-            const modalChartSelector = document.querySelector('#myChartModal')
-            crearChart(data.location, data.active, data.confirmed, data.recovered, data.deaths, modalChartSelector)
+            $('#exampleModal').modal('toggle') // Agrega la propiedad toggle a nuestro modal
+            crearChart(data.location, data.active, data.confirmed, data.recovered, data.deaths, modalChartSelector) 
+            // "crearChart()" Usa la funcion para crear el chart con los datos mandados como parametros
         }
         catch (error) {
             console.log(error)
@@ -139,6 +156,7 @@
             if (data) {
                 // En data tenemos un array de objetos, utilizamos esto con un ciclo for para comenzar a crear las tablas por cada uno de esos datos
                 for (let i = 0; i < data.length; i++) {
+                    // Se utilizan nuestros funciones crearTd y crearTr, junto con la funcion appendChild, para crear la tabla
                     const tr = crearTr()
                     tr.appendChild(crearTd(data[i].location))
                     tr.appendChild(crearTd(data[i].confirmed))
@@ -160,9 +178,8 @@
 
                     tablaDatosSelector.appendChild(tr)
                 }
-                // <td><a href="#" onclick="imprimirDatosPais('${row.location}', '${jwt}')"> Ver Detalle </a></td>
-                // Cada fila de la tabla debe incluir un link que diga "ver detalle", al hacer click levante un modal y m
-                // uestre los casos activos, muertos, recuperados y confirmados en un gráfico
+                // Cada fila de la tabla debe incluir un link que diga "ver detalle", al hacer click levante un modal y
+                // Muestre los casos activos, muertos, recuperados y confirmados en un gráfico
                 // Desplegar toda la información de la API en una tabla.
             }
         } catch (error) {
@@ -181,7 +198,8 @@
         const dataDeaths = isArray ? dataChartDeaths : [dataChartDeaths]
         const dataRecovered = isArray ? dataChartRecovered : [dataChartRecovered]
 
-        lugarImpresion.innerHTML = ""
+        // Configuracion del chart
+        lugarImpresion.innerHTML = "" // Limpiamos el chart antes de crearlo
         const canvas = document.createElement('canvas')
         lugarImpresion.appendChild(canvas)
         const ctx = canvas.getContext('2d')
@@ -227,9 +245,9 @@
         myChart.render()
     }
 
+    // Si tenemos un token en nuestro local storage, ejecutamos nuestras funciones principales
     const autoIniciar = () => {
         jwt = localStorage.getItem('jwt-token')
-
         if (jwt) {
             getDatosTotales(jwt)
             getPaisesTabla(jwt)
@@ -238,6 +256,6 @@
         }
         
     }
-    autoIniciar() // Si tenemos un token en nuestro local storage, ejecutamos nuestras funciones principales
+    autoIniciar()
     // Final funcion IIFE
 })()
