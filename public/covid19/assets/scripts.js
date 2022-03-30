@@ -1,7 +1,6 @@
 (() => {
     // ----------------------- Selectores
     
-    const mostrarFormularioSelector = document.querySelector('#mostrar-formulario') // TODO: cambiar esto a un modal en lugar de div
     // Los selectores de los elementos del navbar (pagina de chile, iniciar y cerrar sesion)
     const loginSelector = document.querySelector('#iniciar-sesion')
     const logoutSelector = document.querySelector('#cerrar-sesion')
@@ -12,13 +11,14 @@
     const formularioSelector = document.querySelector('#js-form')
     const tablaAlbumSelector = document.querySelector('#tabla-album')
     const chartPaginaPrincipalSelector = document.querySelector('#myChart') // La ubicacion que deseamos para nuestro chart de datos de todos los paises
+    const contenedorChartPrincipalSelector = document.querySelector('#contenedorMyChart') // Contenedor del chart principal
     const modalChartSelector = document.querySelector('#myChartModal') // La ubicacion del chart para paises individuales en el modal
     const chartChileSelector = document.querySelector('#myChartChile') // La ubicacion de nuestro chart de Chile y nuestra segunda pagina
 
 
     // ----------------------- Evento de click en el navbar para mostrar el formulario
     loginSelector.addEventListener('click', () => {
-        mostrarFormularioSelector.setAttribute("style", "display: d-block")
+        $('#mostrar-formulario').modal('toggle')
     })
 
     logoutSelector.addEventListener('click', () =>{ // Sirve para eliminar el token y llevar la pagina a su estado inicial
@@ -26,14 +26,12 @@
 
         logoutSelector.setAttribute("style", "display: none")  // Elementos del nav que se ocultan
         pageSituacionChileSelector.setAttribute("style", "display: none") // Elementos del nav que se ocultan
-
-        
         loginSelector.setAttribute("style", "display: block") // Elemento del Nav que se muestra
 
         // Los siguientes elementos son las tablas y los charts que se ocultan al hacer log out - NOTA: ¿Seria mejor eliminar su contenido?
         tablaDatosSelector.setAttribute("style", "display: none")
         tablaAlbumSelector.setAttribute("style", "display: none")
-        chartPaginaPrincipalSelector.setAttribute("style", "display: none")
+        contenedorChartPrincipalSelector.setAttribute("style", "display: none")
         chartChileSelector.setAttribute("style", "display: none")
     })
 
@@ -42,21 +40,20 @@
         event.preventDefault() // Necesario para evitar que la pagina se recargue automaticamente
         const email = document.querySelector('#js-input-email').value
         const password = document.querySelector('#js-input-password').value
-        const jwt = await postData(email, password) // Ejecutamos la funcion post Data que nos retorna el token. Enviamos como  parametros email y contraseña
+        await postData(email, password) // Ejecutamos la funcion post Data que nos retorna el token. Enviamos como  parametros email y contraseña
 
         // Ocultamos el formulario y el boton de login
         loginSelector.setAttribute("style", "display: none")
-        mostrarFormularioSelector.setAttribute("style", "display: none") 
 
         // Mostramos nuestro enlace en logout de nuestro nav, el enlace a la pagina de chile, nuestro chart y nuestra tabla
         logoutSelector.setAttribute("style", "display: block") // Nav logout
         pageSituacionChileSelector.setAttribute("style", "display: block") // Nav pagina chile
-        chartPaginaPrincipalSelector.setAttribute("style", "display: block") // Chart principal (mayor a mil)
+        contenedorChartPrincipalSelector.setAttribute("style", "display: block") // Muestra el contenedor del Chart principal
         tablaDatosSelector.setAttribute("style", "display: d-block") // Tabla de datos
 
         // Ejecucion de nuestras funciones para mostrar los datos
-        getDatosTotales(jwt)
-        getPaisesTabla(jwt)
+        getDatosTotales()
+        getPaisesTabla()
     })
 
     // ----------------------- Funcion que nos retorna el JWT
@@ -77,7 +74,8 @@
     }
 
     // ----------------------- Funcion que con el JWT extrae los datos y pinta el chart principal
-    const getDatosTotales = async (jwt) => { // Consumir la API http://localhost:3000/api/total con JavaScript o jQuery.
+    const getDatosTotales = async () => { // Consumir la API http://localhost:3000/api/total con JavaScript o jQuery.
+        const jwt = localStorage.getItem('jwt-token') 
         try {
             const response = await fetch(`http://localhost:3000/api/total`,
                 {
@@ -141,7 +139,8 @@
     } // Funcion para crear un Tr, luego sera usado mas adelante para ingresarle los td
 
 
-    const getPaisesTabla = async (jwt) => {
+    const getPaisesTabla = async () => {
+        const jwt = localStorage.getItem('jwt-token') 
         try {
             tablaAlbumSelector.setAttribute("style", "display: d-block") // La tabla que estaba previamente oculta sera mostrada con los datos
             const response = await fetch(`http://localhost:3000/api/total`,
@@ -249,6 +248,8 @@
     const autoIniciar = () => {
         jwt = localStorage.getItem('jwt-token')
         if (jwt) {
+            pageSituacionChileSelector.setAttribute("style", "display: block") // Nav pagina chile
+            contenedorChartPrincipalSelector.setAttribute("style", "display: block") // Contenedor chart pagina principal
             getDatosTotales(jwt)
             getPaisesTabla(jwt)
             loginSelector.setAttribute("style", "display: none")
