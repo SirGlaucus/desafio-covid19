@@ -1,6 +1,6 @@
 (() => {
     // ----------------------- Selectores
-    
+
     // Los selectores de los elementos del navbar (pagina de chile, iniciar y cerrar sesion)
     const loginSelector = document.querySelector('#iniciar-sesion')
     const logoutSelector = document.querySelector('#cerrar-sesion')
@@ -21,10 +21,10 @@
         $('#mostrar-formulario').modal('toggle')
     })
 
-    logoutSelector.addEventListener('click', () =>{ // Sirve para eliminar el token y llevar la pagina a su estado inicial
+    logoutSelector.addEventListener('click', () => { // Sirve para eliminar el token y llevar la pagina a su estado inicial         // req 7
         localStorage.removeItem('jwt-token')
 
-        logoutSelector.setAttribute("style", "display: none")  // Elementos del nav que se ocultan
+        logoutSelector.setAttribute("style", "display: none") // Elementos del nav que se ocultan
         pageSituacionChileSelector.setAttribute("style", "display: none") // Elementos del nav que se ocultan
         loginSelector.setAttribute("style", "display: block") // Elemento del Nav que se muestra
 
@@ -36,7 +36,7 @@
     })
 
     // ----------------------- Evento de submit en el formulario para obtener el JWT
-    formularioSelector.addEventListener('submit', async (event) => {
+    formularioSelector.addEventListener('submit', async(event) => {
         event.preventDefault() // Necesario para evitar que la pagina se recargue automaticamente
         const email = document.querySelector('#js-input-email').value
         const password = document.querySelector('#js-input-password').value
@@ -56,17 +56,17 @@
         getPaisesTabla()
     })
 
-    // ----------------------- Funcion que nos retorna el JWT
-    const postData = async (email, password) => {
+    // ----------------------- Funcion que nos retorna el JWT  req 3
+    const postData = async(email, password) => {
         try {
-            const response = await fetch('http://localhost:3000/api/login',
+            const response = await fetch('http://localhost:3000/api/login', // 3.1
                 {
                     method: 'POST',
                     body: JSON.stringify({ email: email, password: password })
                 })
 
             const { token } = await response.json()
-            localStorage.setItem('jwt-token', token) // Luego de generar el token lo guardamos en el locaStorage
+            localStorage.setItem('jwt-token', token) // Luego de generar el token lo guardamos en el localStorage //3.2
             return token
         } catch (error) {
             console.log(`Error: ${error}`)
@@ -74,21 +74,20 @@
     }
 
     // ----------------------- Funcion que con el JWT extrae los datos y pinta el chart principal
-    const getDatosTotales = async () => { // Consumir la API http://localhost:3000/api/total con JavaScript o jQuery.
-        const jwt = localStorage.getItem('jwt-token') 
+    const getDatosTotales = async() => { // Consumir la API http://localhost:3000/api/total con JavaScript o jQuery.
+        const jwt = localStorage.getItem('jwt-token')
         try {
-            const response = await fetch(`http://localhost:3000/api/total`,
-                {
-                    method: 'GET',
-                    headers: {
-                        Authorization: `Bearer ${jwt}`
-                    }
-                })
+            const response = await fetch(`http://localhost:3000/api/total`, {
+                method: 'GET',
+                headers: {
+                    Authorization: `Bearer ${jwt}`
+                }
+            })
             const { data } = await response.json()
             const datosFiltrados = data.filter(datosPaises => {
-                return datosPaises.active >= 10000
-            }) // Luego de obtener los datos, utilizamos la funcion filter para obtener unicamente los paises con mas de 10mil casos activos
-            // Luego creamos constantes que nos van a permitir devolver solo un tipo de propiedad como un array a nuestro chart
+                    return datosPaises.active >= 10000
+                }) // Luego de obtener los datos, utilizamos la funcion filter para obtener unicamente los paises con mas de 10mil casos activos
+                // Luego creamos constantes que nos van a permitir devolver solo un tipo de propiedad como un array a nuestro chart
             const labelPaises = datosFiltrados.map(datos => datos.location)
             const dataChartActive = datosFiltrados.map(datos => datos.active)
             const dataChartConfirmed = datosFiltrados.map(datos => datos.confirmed)
@@ -96,7 +95,7 @@
             const dataChartDeaths = datosFiltrados.map(datos => datos.deaths)
 
             crearChart(labelPaises, dataChartActive, dataChartConfirmed, dataChartDeaths, dataChartRecovered, chartPaginaPrincipalSelector)
-            // Desplegar la información de la API en un gráfico de barra que debe mostrar sólo los países con más de 10000 casos activos.
+                // Desplegar la información de la API en un gráfico de barra que debe mostrar sólo los países con más de 10000 casos activos.
 
         } catch (error) {
             console.log(error)
@@ -105,51 +104,48 @@
 
     // continuacion punto 5: para obtener esta información debes llamar a la API
     // http://localhost:3000/api/countries/{country} al momento de levantar el modal.
-    const imprimirDatosPais = async (e) => {
+    const imprimirDatosPais = async(e) => {
         const pais = e.target.dataset.nombre // El nombre se guardo como dataset al momento de crear la tabla 
-        // y asignamos eso a una constante para especificar el pais en el fetch
+            // y asignamos eso a una constante para especificar el pais en el fetch
         const jwt = localStorage.getItem('jwt-token') // Sacamos nuestro token del localStorage para luego hacer el fetch
         try {
-            const response = await fetch(`http://localhost:3000/api/countries/${pais}`,
-                {
-                    method: 'GET',
-                    headers: {
-                        Authorization: `Bearer ${jwt}`
-                    }
-                })
+            const response = await fetch(`http://localhost:3000/api/countries/${pais}`, {
+                method: 'GET',
+                headers: {
+                    Authorization: `Bearer ${jwt}`
+                }
+            })
             const { data } = await response.json()
             $('#exampleModal').modal('toggle') // Agrega la propiedad toggle a nuestro modal
-            crearChart(data.location, data.active, data.confirmed, data.recovered, data.deaths, modalChartSelector) 
-            // "crearChart()" Usa la funcion para crear el chart con los datos mandados como parametros
-        }
-        catch (error) {
+            crearChart(data.location, data.active, data.confirmed, data.recovered, data.deaths, modalChartSelector)
+                // "crearChart()" Usa la funcion para crear el chart con los datos mandados como parametros
+        } catch (error) {
             console.log(error)
         }
     }
 
     const crearTd = (texto) => {
-        const text = document.createTextNode(texto)
-        const td = document.createElement("td")
-        td.appendChild(text)
-        return td
-    } // Funcion para crear un td y agregarle un nodo de texto
+            const text = document.createTextNode(texto)
+            const td = document.createElement("td")
+            td.appendChild(text)
+            return td
+        } // Funcion para crear un td y agregarle un nodo de texto
 
     const crearTr = () => {
-        return document.createElement("tr") 
-    } // Funcion para crear un Tr, luego sera usado mas adelante para ingresarle los td
+            return document.createElement("tr")
+        } // Funcion para crear un Tr, luego sera usado mas adelante para ingresarle los td
 
 
-    const getPaisesTabla = async () => {
-        const jwt = localStorage.getItem('jwt-token') 
+    const getPaisesTabla = async() => {
+        const jwt = localStorage.getItem('jwt-token')
         try {
             tablaAlbumSelector.setAttribute("style", "display: d-block") // La tabla que estaba previamente oculta sera mostrada con los datos
-            const response = await fetch(`http://localhost:3000/api/total`,
-                {
-                    method: 'GET',
-                    headers: {
-                        Authorization: `Bearer ${jwt}`
-                    }
-                })
+            const response = await fetch(`http://localhost:3000/api/total`, {
+                method: 'GET',
+                headers: {
+                    Authorization: `Bearer ${jwt}`
+                }
+            })
             const { data } = await response.json()
 
             if (data) {
@@ -189,8 +185,8 @@
     const crearChart = (labelPaises, dataChartActive, dataChartConfirmed, dataChartDeaths, dataChartRecovered, lugarImpresion) => {
 
         const isArray = Array.isArray(labelPaises) // Nos sirve para comprobar si tenemos un array o no
-        // En el caso de que no sea un array, devolvemos el valor unico en un array
-        // Esto nos permite reutilizar la tabla
+            // En el caso de que no sea un array, devolvemos el valor unico en un array
+            // Esto nos permite reutilizar la tabla
         const labels = isArray ? labelPaises : [labelPaises]
         const dataActive = isArray ? dataChartActive : [dataChartActive]
         const dataConfirmed = isArray ? dataChartConfirmed : [dataChartConfirmed]
@@ -216,8 +212,7 @@
                     label: 'Confirmados',
                     data: dataConfirmed,
                     backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                    borderColor: 'rgba(54, 162, 235, 1)'
-                    ,
+                    borderColor: 'rgba(54, 162, 235, 1)',
                     borderWidth: 1
                 }, {
                     label: 'Muertes',
@@ -244,7 +239,7 @@
         myChart.render()
     }
 
-    // Si tenemos un token en nuestro local storage, ejecutamos nuestras funciones principales
+    // Si tenemos un token en nuestro local storage, ejecutamos nuestras funciones principales // 3.3
     const autoIniciar = () => {
         jwt = localStorage.getItem('jwt-token')
         if (jwt) {
@@ -255,8 +250,8 @@
             loginSelector.setAttribute("style", "display: none")
             logoutSelector.setAttribute("style", "display: block")
         }
-        
+
     }
     autoIniciar()
-    // Final funcion IIFE
+        // Final funcion IIFE
 })()

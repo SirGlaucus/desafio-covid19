@@ -4,56 +4,53 @@ const tablaAlbumSelector = document.querySelector('#tabla-album') // Selector pa
 const chartChileSelector = document.querySelector('#myChartChile') // La ubicaion que deseamos para nuestro chart de datos de Chile
 const contenedorChartPrincipalSelector = document.querySelector('#contenedorMyChart') // Contenedor del chart principal
 
-// Al cargar la pagina ocultamos automaticamente lo siguiente
+// Al cargar la pagina ocultamos automaticamente lo siguiente // req 4 
 tablaDatosSelector.setAttribute("style", "display: none")
 tablaAlbumSelector.setAttribute("style", "display: none")
 contenedorChartPrincipalSelector.setAttribute("style", "display: none")
 
 // -----------------------  Hacemos fetch de los datos de los casos confirmados
-const getChileConfirmed = async () => {
-    jwt = localStorage.getItem('jwt-token')
-    try {
-        const response = await fetch(`http://localhost:3000/api/confirmed`,
-            {
+const getChileConfirmed = async() => { //                                    req 5
+        jwt = localStorage.getItem('jwt-token')
+        try {
+            const response = await fetch(`http://localhost:3000/api/confirmed`, {
                 method: 'GET',
                 headers: {
                     Authorization: `Bearer ${jwt}`
                 }
             })
-        const { data } = await response.json()
-        return data
-    } catch (error) {
-        console.log(error)
+            const { data } = await response.json()
+            return data
+        } catch (error) {
+            console.log(error)
+        }
     }
-}
-// -----------------------  Hacemos fetch de los datos de los casos de muertos
-const getChileDeaths = async () => {
-    jwt = localStorage.getItem('jwt-token')
-    try {
-        const response = await fetch(`http://localhost:3000/api/deaths`,
-            {
+    // -----------------------  Hacemos fetch de los datos de los casos de muertos
+const getChileDeaths = async() => { //                                        req 5
+        jwt = localStorage.getItem('jwt-token')
+        try {
+            const response = await fetch(`http://localhost:3000/api/deaths`, {
                 method: 'GET',
                 headers: {
                     Authorization: `Bearer ${jwt}`
                 }
             })
-        const { data } = await response.json()
-        return data
-    } catch (error) {
-        console.log(error)
+            const { data } = await response.json()
+            return data
+        } catch (error) {
+            console.log(error)
+        }
     }
-}
-// -----------------------  Hacemos fetch de los datos de los casos recuperados
-const getChileRecovered = async () => {
+    // -----------------------  Hacemos fetch de los datos de los casos recuperados
+const getChileRecovered = async() => { //                                    req 5
     jwt = localStorage.getItem('jwt-token')
     try {
-        const response = await fetch(`http://localhost:3000/api/recovered`,
-            {
-                method: 'GET',
-                headers: {
-                    Authorization: `Bearer ${jwt}`
-                }
-            })
+        const response = await fetch(`http://localhost:3000/api/recovered`, {
+            method: 'GET',
+            headers: {
+                Authorization: `Bearer ${jwt}`
+            }
+        })
         const { data } = await response.json()
         return data
     } catch (error) {
@@ -63,7 +60,7 @@ const getChileRecovered = async () => {
 
 // -----------------------  Nuestro funcion que crea nuestro nuevo Chart de linea unicamente con los datos de Chile
 const crearTablaChile = (fechas, confirmados, muertos, recuperados) => {
-    // Recibe los datos como parametros para ser utilizados en la tabla
+    // Recibe los datos como parametros para ser utilizados en la tabla  // req 4
     const confirmed = confirmados
     const deaths = muertos
     const recovered = recuperados
@@ -72,7 +69,7 @@ const crearTablaChile = (fechas, confirmados, muertos, recuperados) => {
     chartChileSelector.setAttribute("style", "display: block")
     const canvas = document.createElement('canvas')
     chartChileSelector.appendChild(canvas)
-    const ctx = canvas.getContext('2d')
+    const ctx = canvas.getContext('2d') //                                  req 6
     const myChart = new Chart(ctx, {
         type: 'line',
         data: {
@@ -87,8 +84,7 @@ const crearTablaChile = (fechas, confirmados, muertos, recuperados) => {
                 label: 'Muertos',
                 data: deaths,
                 backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                borderColor: 'rgba(54, 162, 235, 1)'
-                ,
+                borderColor: 'rgba(54, 162, 235, 1)',
                 borderWidth: 1
             }, {
                 label: 'Recuperados',
@@ -110,7 +106,7 @@ const crearTablaChile = (fechas, confirmados, muertos, recuperados) => {
 }
 
 // ----------------------- Las funciones anteriores solo se ejecutan cuando tenemos un JWT
-const autoIniciarChile = async () => {
+const autoIniciarChile = async() => {
     jwt = localStorage.getItem('jwt-token')
     if (jwt) {
         pageSituacionChileSelector.setAttribute("style", "display: block") // Permite que se vea nuestro elemento del nav de "Situacion Chile"
