@@ -245,12 +245,11 @@
         if (jwt) {
             pageSituacionChileSelector.setAttribute("style", "display: block") // Nav pagina chile
             contenedorChartPrincipalSelector.setAttribute("style", "display: block") // Contenedor chart pagina principal
-            getDatosTotales(jwt)
-            getPaisesTabla(jwt)
+            getDatosTotales()
+            getPaisesTabla()
             loginSelector.setAttribute("style", "display: none")
             logoutSelector.setAttribute("style", "display: block")
         }
-
     }
     autoIniciar()
         // Final funcion IIFE
