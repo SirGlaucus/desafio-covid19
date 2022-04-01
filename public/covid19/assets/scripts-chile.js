@@ -111,9 +111,9 @@ const autoIniciarChile = async() => {
     if (jwt) {
         pageSituacionChileSelector.setAttribute("style", "display: block") // Permite que se vea nuestro elemento del nav de "Situacion Chile"
         chartChileSelector.setAttribute("style", "display: block") // Permitimos que se vea nuestra nuevo Chart
-        const confirmados = await getChileConfirmed(jwt)
-        const muertos = await getChileDeaths(jwt)
-        const recuperados = await getChileRecovered(jwt)
+        const confirmados = await getChileConfirmed()
+        const muertos = await getChileDeaths()
+        const recuperados = await getChileRecovered()
 
         // Luego de ejecutar el llamado a nuestras appis y guardar sus datos en una constante
         // Transformamos los datos, sacando solamente una propiedad y lo utilizamos para nuestra tabla
