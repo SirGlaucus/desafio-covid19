@@ -116,7 +116,7 @@
                 }
             })
             const { data } = await response.json()
-            $('#exampleModal').modal('toggle') // Agrega la propiedad toggle a nuestro modal
+            $('#modalPais').modal('toggle') // Agrega la propiedad toggle a nuestro modal
             crearChart(data.location, data.active, data.confirmed, data.recovered, data.deaths, modalChartSelector)
                 // 'crearChart()' Usa la funcion para crear el chart con los datos mandados como parametros
         } catch (error) {
@@ -241,7 +241,7 @@
 
     // Si tenemos un token en nuestro local storage, ejecutamos nuestras funciones principales // 3.3
     const autoIniciar = () => {
-        jwt = localStorage.getItem('jwt-token')
+        const jwt = localStorage.getItem('jwt-token')
         if (jwt) {
             pageSituacionChileSelector.setAttribute('style', 'display: block') // Nav pagina chile
             contenedorChartPrincipalSelector.setAttribute('style', 'display: block') // Contenedor chart pagina principal
