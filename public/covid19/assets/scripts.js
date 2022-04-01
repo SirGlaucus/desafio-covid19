@@ -8,9 +8,9 @@
 
     // Selectores de las tablas y charts
     const tablaDatosSelector = document.querySelector('#bodyTabla')
-    const formularioSelector = document.querySelector('#js-form')
+    const formularioSelector = document.querySelector('#formularioDatos')
     const tablaAlbumSelector = document.querySelector('#tabla-album')
-    const chartPaginaPrincipalSelector = document.querySelector('#myChart') // La ubicacion que deseamos para nuestro chart de datos de todos los paises
+    const chartPaginaPrincipalSelector = document.querySelector('#chartPrincipal') // La ubicacion que deseamos para nuestro chart de datos de todos los paises
     const contenedorChartPrincipalSelector = document.querySelector('#contenedorMyChart') // Contenedor del chart principal
     const modalChartSelector = document.querySelector('#myChartModal') // La ubicacion del chart para paises individuales en el modal
     const chartChileSelector = document.querySelector('#myChartChile') // La ubicacion de nuestro chart de Chile y nuestra segunda pagina
@@ -24,15 +24,15 @@
     logoutSelector.addEventListener('click', () => { // Sirve para eliminar el token y llevar la pagina a su estado inicial         // req 7
         localStorage.removeItem('jwt-token')
 
-        logoutSelector.setAttribute("style", "display: none") // Elementos del nav que se ocultan
-        pageSituacionChileSelector.setAttribute("style", "display: none") // Elementos del nav que se ocultan
-        loginSelector.setAttribute("style", "display: block") // Elemento del Nav que se muestra
+        logoutSelector.setAttribute('style', 'display: none') // Elementos del nav que se ocultan
+        pageSituacionChileSelector.setAttribute('style', 'display: none') // Elementos del nav que se ocultan
+        loginSelector.setAttribute('style', 'display: block') // Elemento del Nav que se muestra
 
         // Los siguientes elementos son las tablas y los charts que se ocultan al hacer log out - NOTA: ¿Seria mejor eliminar su contenido?
-        tablaDatosSelector.setAttribute("style", "display: none")
-        tablaAlbumSelector.setAttribute("style", "display: none")
-        contenedorChartPrincipalSelector.setAttribute("style", "display: none")
-        chartChileSelector.setAttribute("style", "display: none")
+        tablaDatosSelector.setAttribute('style', 'display: none')
+        tablaAlbumSelector.setAttribute('style', 'display: none')
+        contenedorChartPrincipalSelector.setAttribute('style', 'display: none')
+        chartChileSelector.setAttribute('style', 'display: none')
     })
 
     // ----------------------- Evento de submit en el formulario para obtener el JWT
@@ -43,13 +43,13 @@
         await postData(email, password) // Ejecutamos la funcion post Data que nos retorna el token. Enviamos como  parametros email y contraseña
 
         // Ocultamos el formulario y el boton de login
-        loginSelector.setAttribute("style", "display: none")
+        loginSelector.setAttribute('style', 'display: none')
 
         // Mostramos nuestro enlace en logout de nuestro nav, el enlace a la pagina de chile, nuestro chart y nuestra tabla
-        logoutSelector.setAttribute("style", "display: block") // Nav logout
-        pageSituacionChileSelector.setAttribute("style", "display: block") // Nav pagina chile
-        contenedorChartPrincipalSelector.setAttribute("style", "display: block") // Muestra el contenedor del Chart principal
-        tablaDatosSelector.setAttribute("style", "display: d-block") // Tabla de datos
+        logoutSelector.setAttribute('style', 'display: block') // Nav logout
+        pageSituacionChileSelector.setAttribute('style', 'display: block') // Nav pagina chile
+        contenedorChartPrincipalSelector.setAttribute('style', 'display: block') // Muestra el contenedor del Chart principal
+        tablaDatosSelector.setAttribute('style', 'display: d-block') // Tabla de datos
 
         // Ejecucion de nuestras funciones para mostrar los datos
         getDatosTotales()
@@ -118,7 +118,7 @@
             const { data } = await response.json()
             $('#exampleModal').modal('toggle') // Agrega la propiedad toggle a nuestro modal
             crearChart(data.location, data.active, data.confirmed, data.recovered, data.deaths, modalChartSelector)
-                // "crearChart()" Usa la funcion para crear el chart con los datos mandados como parametros
+                // 'crearChart()' Usa la funcion para crear el chart con los datos mandados como parametros
         } catch (error) {
             console.log(error)
         }
@@ -126,20 +126,20 @@
 
     const crearTd = (texto) => {
             const text = document.createTextNode(texto)
-            const td = document.createElement("td")
+            const td = document.createElement('td')
             td.appendChild(text)
             return td
         } // Funcion para crear un td y agregarle un nodo de texto
 
     const crearTr = () => {
-            return document.createElement("tr")
+            return document.createElement('tr')
         } // Funcion para crear un Tr, luego sera usado mas adelante para ingresarle los td
 
 
     const getPaisesTabla = async() => {
         const jwt = localStorage.getItem('jwt-token')
         try {
-            tablaAlbumSelector.setAttribute("style", "display: d-block") // La tabla que estaba previamente oculta sera mostrada con los datos
+            tablaAlbumSelector.setAttribute('style', 'display: d-block') // La tabla que estaba previamente oculta sera mostrada con los datos
             const response = await fetch(`http://localhost:3000/api/total`, {
                 method: 'GET',
                 headers: {
@@ -163,7 +163,7 @@
                     const detallesEnlace = document.createElement('button')
                     detallesEnlace.dataset.nombre = data[i].location // Le agregamos a nuestro boton un dataset llamado nombre para guardar el string de location
                     detallesEnlace.addEventListener('click', imprimirDatosPais) // A cada boton le vamos a asignar el evento click y la funcion imprimirDatosPais
-                    detallesEnlace.classList.add("btn", "btn-link")
+                    detallesEnlace.classList.add('btn', 'btn-link')
 
                     const detallesEnlaceTexto = document.createTextNode('Ver detalles')
                     detallesEnlace.appendChild(detallesEnlaceTexto)
@@ -173,7 +173,7 @@
 
                     tablaDatosSelector.appendChild(tr)
                 }
-                // Cada fila de la tabla debe incluir un link que diga "ver detalle", al hacer click levante un modal y
+                // Cada fila de la tabla debe incluir un link que diga 'ver detalle', al hacer click levante un modal y
                 // Muestre los casos activos, muertos, recuperados y confirmados en un gráfico
                 // Desplegar toda la información de la API en una tabla.
             }
@@ -194,7 +194,7 @@
         const dataRecovered = isArray ? dataChartRecovered : [dataChartRecovered]
 
         // Configuracion del chart
-        lugarImpresion.innerHTML = "" // Limpiamos el chart antes de crearlo
+        lugarImpresion.innerHTML = '' // Limpiamos el chart antes de crearlo
         const canvas = document.createElement('canvas')
         lugarImpresion.appendChild(canvas)
         const ctx = canvas.getContext('2d')
@@ -243,12 +243,12 @@
     const autoIniciar = () => {
         jwt = localStorage.getItem('jwt-token')
         if (jwt) {
-            pageSituacionChileSelector.setAttribute("style", "display: block") // Nav pagina chile
-            contenedorChartPrincipalSelector.setAttribute("style", "display: block") // Contenedor chart pagina principal
+            pageSituacionChileSelector.setAttribute('style', 'display: block') // Nav pagina chile
+            contenedorChartPrincipalSelector.setAttribute('style', 'display: block') // Contenedor chart pagina principal
             getDatosTotales()
             getPaisesTabla()
-            loginSelector.setAttribute("style", "display: none")
-            logoutSelector.setAttribute("style", "display: block")
+            loginSelector.setAttribute('style', 'display: none')
+            logoutSelector.setAttribute('style', 'display: block')
         }
     }
     autoIniciar()

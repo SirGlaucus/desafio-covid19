@@ -1,13 +1,13 @@
-const pageSituacionChileSelector = document.querySelector('#page-chile') // Selector para el elemento "pagina de chile" del navbar
+const pageSituacionChileSelector = document.querySelector('#page-chile') // Selector para el elemento 'pagina de chile' del navbar
 const tablaDatosSelector = document.querySelector('#bodyTabla') // Selector para pintar la tabla
 const tablaAlbumSelector = document.querySelector('#tabla-album') // Selector para la tabla completa
 const chartChileSelector = document.querySelector('#myChartChile') // La ubicaion que deseamos para nuestro chart de datos de Chile
 const contenedorChartPrincipalSelector = document.querySelector('#contenedorMyChart') // Contenedor del chart principal
 
 // Al cargar la pagina ocultamos automaticamente lo siguiente // req 4 
-tablaDatosSelector.setAttribute("style", "display: none")
-tablaAlbumSelector.setAttribute("style", "display: none")
-contenedorChartPrincipalSelector.setAttribute("style", "display: none")
+tablaDatosSelector.setAttribute('style', 'display: none')
+tablaAlbumSelector.setAttribute('style', 'display: none')
+contenedorChartPrincipalSelector.setAttribute('style', 'display: none')
 
 // -----------------------  Hacemos fetch de los datos de los casos confirmados
 const getChileConfirmed = async() => { //                                    req 5
@@ -66,7 +66,7 @@ const crearTablaChile = (fechas, confirmados, muertos, recuperados) => {
     const recovered = recuperados
     const dates = fechas
 
-    chartChileSelector.setAttribute("style", "display: block")
+    chartChileSelector.setAttribute('style', 'display: block')
     const canvas = document.createElement('canvas')
     chartChileSelector.appendChild(canvas)
     const ctx = canvas.getContext('2d') //                                  req 6
@@ -109,8 +109,8 @@ const crearTablaChile = (fechas, confirmados, muertos, recuperados) => {
 const autoIniciarChile = async() => {
     jwt = localStorage.getItem('jwt-token')
     if (jwt) {
-        pageSituacionChileSelector.setAttribute("style", "display: block") // Permite que se vea nuestro elemento del nav de "Situacion Chile"
-        chartChileSelector.setAttribute("style", "display: block") // Permitimos que se vea nuestra nuevo Chart
+        pageSituacionChileSelector.setAttribute('style', 'display: block') // Permite que se vea nuestro elemento del nav de 'Situacion Chile'
+        chartChileSelector.setAttribute('style', 'display: block') // Permitimos que se vea nuestra nuevo Chart
         const confirmados = await getChileConfirmed()
         const muertos = await getChileDeaths()
         const recuperados = await getChileRecovered()
